@@ -29,8 +29,12 @@ defmodule PerfectNumbers do
       number > 4 -> 2..round(:math.sqrt(number))
         |> Enum.filter(fn(i) -> rem(number, i) == 0 end)
         |> Enum.map(fn(i) -> {i, div(number, i)} end)
-        |> Enum.reduce(1, fn({i, j}, acc) -> acc + i + j end)
+        |> Enum.reduce(1, fn({i, j}, acc) -> acc + partner_sum(i, j) end)
       true -> -1
     end
   end
+
+  defp partner_sum(i, i), do: i
+  defp partner_sum(i, j), do: i + j
+
 end

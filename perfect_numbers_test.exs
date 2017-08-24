@@ -49,6 +49,11 @@ defmodule PerfectNumbersTest do
     end
 
     # @tag :pending
+    test "The number 16 should be deficient" do
+      assert PerfectNumbers.classify(16) == { :ok, :deficient }
+    end
+
+    # @tag :pending
     test "Smallest non-prime deficient number is classified correctly" do
       assert PerfectNumbers.classify(4) == { :ok, :deficient }
     end
